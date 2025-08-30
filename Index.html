@@ -1,0 +1,823 @@
+  
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zego - Let's Secure Your Business</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .contact-btn {
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Main Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 100%);
+            padding: 4rem 0;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-left h1 {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-left p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .contact-info div:before {
+            content: "📧";
+            margin-right: 0.5rem;
+        }
+
+        .contact-info div:nth-child(2):before {
+            content: "📞";
+        }
+
+        .contact-info div:nth-child(3):before {
+            content: "📍";
+        }
+
+        /* 3D Sphere */
+        .sphere-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+
+        .sphere {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+            box-shadow: 
+                0 20px 40px rgba(59, 130, 246, 0.3),
+                inset -10px -10px 20px rgba(0, 0, 0, 0.1),
+                inset 10px 10px 20px rgba(255, 255, 255, 0.3);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sphere::before {
+            content: "✓";
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input, select, textarea {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .service-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8fafc;
+            padding: 3rem 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .testimonial-company {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-dot.active {
+            background: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #374151;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #2563eb;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Custom Alert Box */
+        .custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 3px solid #2563eb;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            display: none;
+        }
+
+        .custom-alert.show {
+            display: block;
+            animation: alertSlideIn 0.3s ease-out;
+        }
+
+        @keyframes alertSlideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .alert-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .alert-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .alert-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .alert-message {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .alert-button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .alert-button:hover {
+            background: #1d4ed8;
+        }
+
+        .alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .alert-overlay.show {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Show Alert Button */
+        .show-alert-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        .show-alert-btn:hover {
+            background: #059669;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Zego</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+            <a href="#contact" class="contact-btn">Contact us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <h1>Let's Secure Your Business</h1>
+                        <p>Have questions about our services or need a custom security solution? Fill the form and our team will get back to you within 24 hours.</p>
+                        
+                        <div class="contact-info">
+                            <div>mail@example.com</div>
+                            <div>+1 (555) 000 0000</div>
+                            <div>123 Sample St, Sydney NSW 2000 AU</div>
+                        </div>
+
+                        <div class="form-section">
+                            <form id="contactForm">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="firstName">First name</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last name</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone number</label>
+                                        <input type="tel" id="phone" name="phone">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="serviceType">Service Type</label>
+                                    <select id="serviceType" name="serviceType">
+                                        <option value="">Select a service</option>
+                                        <option value="web-app-security">Web Application Security Audit</option>
+                                        <option value="cloud-security">Cloud Security Assessment</option>
+                                        <option value="penetration-testing">Penetration Testing</option>
+                                        <option value="compliance">Compliance Assessment</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Services Needed:</label>
+                                    <div class="services-grid">
+                                        <div class="service-option">
+                                            <input type="checkbox" id="audit" name="services" value="audit">
+                                            <label for="audit">Web Application Security Audit</label>
+                                        </div>
+                                        <div class="service-option">
+                                            <input type="checkbox" id="assessment" name="services" value="assessment">
+                                            <label for="assessment">PCI DSS Gap Assessment</label>
+                                        </div>
+                                        <div class="service-option">
+                                            <input type="checkbox" id="cloud" name="services" value="cloud">
+                                            <label for="cloud">Cloud Security Assessment</label>
+                                        </div>
+                                        <div class="service-option">
+                                            <input type="checkbox" id="training" name="services" value="training">
+                                            <label for="training">Security Awareness Training</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" placeholder="Type your message..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="service-option">
+                                        <input type="checkbox" id="terms" name="terms" required>
+                                        <label for="terms">I agree to the Terms</label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="submit-btn">Send your info</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="hero-right">
+                        <div class="sphere-container">
+                            <div class="sphere" id="sphere"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="testimonial-card">
+                    <div class="testimonial-text" id="testimonialText">
+                        "Security Council transformed our cybersecurity posture, providing invaluable insights and support that exceeded our expectations."
+                    </div>
+                    <div class="testimonial-author" id="testimonialAuthor">John Doe</div>
+                    <div class="testimonial-company" id="testimonialCompany">CTO, TechCorp</div>
+                    <div class="testimonial-nav">
+                        <div class="nav-dot active" onclick="showTestimonial(0)"></div>
+                        <div class="nav-dot" onclick="showTestimonial(1)"></div>
+                        <div class="nav-dot" onclick="showTestimonial(2)"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo" style="color: #2563eb; margin-bottom: 1rem;">Zego</div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="#contact">Get in Touch</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#team">Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#security">Security Audit</a></li>
+                        <li><a href="#consulting">Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                <div></div>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Security Council. All rights reserved. | Privacy Policy | Terms of Use | Cookie Policy</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Alert Box -->
+    <div class="alert-overlay" id="alertOverlay" onclick="hideCustomAlert()"></div>
+    <div class="custom-alert" id="customAlert">
+        <div class="alert-header">
+            <div class="alert-icons">
+                <div class="alert-icon">🔒</div>
+                <div class="alert-icon">🛡️</div>
+            </div>
+        </div>
+        <div class="alert-title">Let's Secure Your Business</div>
+        <div class="alert-message">Our team will get back to you within 24 hours.</div>
+        <button class="alert-button" onclick="hideCustomAlert()">Send me info</button>
+    </div>
+
+    <script>
+        // Testimonials data
+        const testimonials = [
+            {
+                text: "Security Council transformed our cybersecurity posture, providing invaluable insights and support that exceeded our expectations.",
+                author: "John Doe",
+                company: "CTO, TechCorp"
+            },
+            {
+                text: "Outstanding service and expertise. Their security audit helped us identify critical vulnerabilities we didn't know existed.",
+                author: "Sarah Johnson",
+                company: "IT Director, FinanceFlow"
+            },
+            {
+                text: "Professional, thorough, and reliable. Zego's team made our compliance journey smooth and stress-free.",
+                author: "Mike Chen",
+                company: "CISO, DataCorp"
+            }
+        ];
+
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            currentTestimonial = index;
+            const testimonial = testimonials[index];
+            
+            document.getElementById('testimonialText').textContent = testimonial.text;
+            document.getElementById('testimonialAuthor').textContent = testimonial.author;
+            document.getElementById('testimonialCompany').textContent = testimonial.company;
+            
+            // Update nav dots
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Custom Alert Functions
+        function showCustomAlert() {
+            document.getElementById('alertOverlay').classList.add('show');
+            document.getElementById('customAlert').classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function hideCustomAlert() {
+            document.getElementById('alertOverlay').classList.remove('show');
+            document.getElementById('customAlert').classList.remove('show');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close alert with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideCustomAlert();
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Show custom alert instead of browser alert
+            showCustomAlert();
+            console.log('Form data:', data);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to sphere
+        window.addEventListener('scroll', () => {
+            const sphere = document.getElementById('sphere');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            sphere.style.transform = `translateY(${rate}px)`;
+        });
+
+        // Add interactive hover effect to sphere
+        document.getElementById('sphere').addEventListener('mouseenter', function() {
+            this.style.transform += ' scale(1.1)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+
+        document.getElementById('sphere').addEventListener('mouseleave', function() {
+            this.style.transform = this.style.transform.replace(' scale(1.1)', '');
+        });
+    </script>
+</body>
+</html>
